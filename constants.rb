@@ -1,0 +1,1 @@
+APP_NAME = "_rails_lite"
