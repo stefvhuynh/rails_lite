@@ -1,0 +1,3 @@
+Rails Lite
+===========
+Working on session class...
