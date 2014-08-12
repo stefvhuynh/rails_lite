@@ -3,9 +3,8 @@ require 'webrick'
 
 class PuppiesController < ControllerBase
   def test
-    session[:puppies] ||= "ruff"
-    session[:puppies] += " ruff"
-    render :show
+    puts params
+    # render :show
   end
 end
 

@@ -1,5 +1,6 @@
 require_relative '../extensions/string_conversions'
 require_relative 'session'
+require_relative 'params'
 require 'erb'
 
 class ControllerBase
@@ -10,13 +11,16 @@ class ControllerBase
     @already_built_response = false
   end
   
+  def params
+    @params ||= Params.new(@req)
+  end
+  
   def session
     @session ||= Session.new(@req)
   end
   
   def render(template_name)
     content = File.read(
-    # String#uncontrollerize defined in extensions/string_conversions
       "views/#{self.class.to_s.uncontrollerize}/#{template_name}.html.erb"
     )
     
